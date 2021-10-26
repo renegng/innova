@@ -869,6 +869,50 @@ export function shareRedirect(e) {
 /* Allow 'window' context to reference the function */
 window.shareRedirect = shareRedirect;
 
+
+// Top Bar Tabs URL Active and Redirect
+const topBarTabURLs = {
+    // Inicio
+    0: {'url': '/welcome/', 'target': '_self'},
+    // Digital Center
+    1: {'url': '/digitalcenter/', 'target': '_self'},
+    // Marketplace
+    2: {'url': '/marketplace/', 'target': '_self'},
+    // Programa con Laboratoria
+    3: {'url': '/laboratoria/', 'target': '_self'},
+    // MAE
+    4: {'url': 'https://www.ciudadmujer.gob.hn/servicios/mae/', 'target': '_blank'}
+};
+
+export function topBarTabRedirect(index) {
+    if (index in topBarTabURLs) {
+        let tabURL = topBarTabURLs[index];
+        if (tabURL['target'] == '_self') {
+            window.location.assign(tabURL['url']);
+        } else {
+            window.open(tabURL['url']);
+        }
+    } else {
+        console.log("No TopBar Tab URL redirect assigned");
+    }
+}
+/* Allow 'window' context to reference the function */
+window.topBarTabRedirect = topBarTabRedirect;
+
+export function topBarTabURLActive(elm) {
+    let currentURL = location.pathname;
+    for (let [index, tab] of Object.entries(topBarTabURLs)) {
+        if (tab['url'] == currentURL) {
+            let activeTab = elm.querySelectorAll('.mdc-tab')[index];
+            activeTab.classList.add('mdc-tab--active');
+            activeTab.querySelector('.mdc-tab-indicator').classList.add('mdc-tab-indicator--active');
+        }
+    };
+}
+/* Allow 'window' context to reference the function */
+window.topBarTabURLActive = topBarTabURLActive;
+
+
 /* Import Account Redirect Function and make it available in the window scope */
 /* Allow 'window' context to reference the function */
 window.accountRedirect = accountRedirect;
@@ -1131,9 +1175,14 @@ export var mdcSelects = [].map.call(document.querySelectorAll('.mdc-select'), fu
 export var mdcTabBars = [].map.call(document.querySelectorAll('.mdc-tab-bar'), function (el) {
     let mdcTab = new MDCTabBar(el);
     let actionFn = el.getAttribute('data-action-fn');
+    let activeFn = el.getAttribute('data-action-set-active');
     if (actionFn) {
         let fn = (typeof actionFn == "string") ? window[actionFn] : actionFn;
         mdcTab.listen('MDCTabBar:activated', (evt) => fn(evt.detail.index));
+    }
+    if (activeFn) {
+        let fn = (typeof actionFn == "string") ? window[activeFn] : activeFn;
+        fn(el);
     }
     if (el.hasAttribute('data-assigned-var')) {
         MDCTabBar.prototype.assignedVar = null;

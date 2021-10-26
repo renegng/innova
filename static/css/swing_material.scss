@@ -374,6 +374,11 @@
 //     }
 // }
 
+/* Tabs */
+.mdc-tab {
+    @include tab.text-label-color(stv.$swing-theme-on-background);
+}
+
 /* Text field */
 .mdc-text-field {
     width: 100%;

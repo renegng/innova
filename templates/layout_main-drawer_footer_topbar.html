@@ -138,11 +138,11 @@
                     data-action-type="redirect" data-action-val="/login/">
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">app_registration</i>
-                    <span class="mdc-button__label">Regístrate</span>
+                    <span class="mdc-button__label">Inscríbete</span>
                 </button>
             </div>
             <div class="s-topbar__text-button">
-                <button id="tbLoginButton" class="mdc-button mdc-button--raised mdc-button--icon-leading mdc-button--color-inverted" aria-label="Register" alt="Register"
+                <button id="tbLoginButton" class="mdc-button mdc-button--raised mdc-button--icon-leading mdc-button--color-secondary" aria-label="Register" alt="Register"
                     data-action-type="redirect" data-action-val="/login/">
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">person</i>
@@ -168,13 +168,13 @@
 {% endblock %}
 {% block toptab %}
 <div class="s-toptab">
-    <div class="mdc-tab-bar" role="tablist">
+    <div class="mdc-tab-bar" role="tablist" data-action-fn="topBarTabRedirect" data-action-set-active="topBarTabURLActive">
         <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
                 <div class="mdc-tab-scroller__scroll-content">
                     <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">DigiCenter</span>
+                            <span class="mdc-tab__text-label">Inicio</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -183,7 +183,7 @@
                     </button>
                     <button class="mdc-tab" role="tab" aria-selected="true" tabindex="1">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">Marketplace</span>
+                            <span class="mdc-tab__text-label">Digital Center</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -192,7 +192,7 @@
                     </button>
                     <button class="mdc-tab" role="tab" aria-selected="true" tabindex="2">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">Programa con Laboratoria</span>
+                            <span class="mdc-tab__text-label">Marketplace</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -200,6 +200,15 @@
                         <span class="mdc-tab__ripple"></span>
                     </button>
                     <button class="mdc-tab" role="tab" aria-selected="true" tabindex="3">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">Programa con Laboratoria</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" role="tab" aria-selected="true" tabindex="4">
                         <span class="mdc-tab__content">
                             <span class="mdc-tab__text-label">MAE</span>
                         </span>
