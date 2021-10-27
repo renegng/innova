@@ -759,6 +759,24 @@ body {
     width: 100%;
 }
 
+.container-color-landingpage {
+    background: linear-gradient(145deg, #0073CF 0%, #a5b9e1 50%, #952D98 100%);
+    display: block;
+    width: 100%;
+}
+
+.container-color-on-primary {
+    background: stv.$swing-theme-on-primary;
+    display: block;
+    width: 100%;
+}
+
+.container-color-primary {
+    background: stv.$swing-theme-primary;
+    display: block;
+    width: 100%;
+}
+
 .container-color-secondary {
     background: stv.$swing-theme-secondary;
     display: block;

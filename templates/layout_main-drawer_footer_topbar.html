@@ -2,17 +2,17 @@
 {% block drawer %}
 <aside class="s-drawer mdc-drawer {% block drawer_type %}{% endblock %}">
     <div class="mdc-drawer__header">
-        <img id="logo-nav-drawer" src="{{ url_for('static', filename='images/manifest/contact-os.svg') }}"
+        <img id="logo-nav-drawer" src="{{ url_for('static', filename='images/manifest/innova_pin.svg') }}"
             alt="Logo Contact-Os" />
-        <h3 class="mdc-drawer__title">Contact-Os</h3>
-        <h6 class="mdc-drawer__subtitle">Asistencia Remota</h6>
+        <h3 class="mdc-drawer__title">Innova Mujer</h3>
+        <h6 class="mdc-drawer__subtitle">Fortalece tu negocio</h6>
     </div>
     <div class="mdc-drawer__content">
         <nav class="mdc-deprecated-list">
             <a class="mdc-deprecated-list-item" href="/welcome/" aria-current="page" tabindex="0">
                 <span class="mdc-deprecated-list-item__ripple"></span>
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">home</i>
-                <span class="mdc-deprecated-list-item__text">Bienvenido</span>
+                <span class="mdc-deprecated-list-item__text">Inicio</span>
             </a>
             {% if current_user.is_authenticated %}
             <a class="mdc-deprecated-list-item" href="/home/" aria-current="page">
@@ -46,17 +46,38 @@
             </a>
                 {% endif %}
             {% else %}
-            <a class="mdc-deprecated-list-item" href="/chat/" aria-current="page">
+            <a class="mdc-deprecated-list-item" href="/digitalcenter/" aria-current="page">
                 <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">chat</i>
-                <span class="mdc-deprecated-list-item__text">Chat</span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">rss_feed</i>
+                <span class="mdc-deprecated-list-item__text">Digital Center</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/marketplace/" aria-current="page">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">store</i>
+                <span class="mdc-deprecated-list-item__text">Marketplace</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/laboratoria/" aria-current="page">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">school</i>
+                <span class="mdc-deprecated-list-item__text">Laboratoria</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="https://www.ciudadmujer.gob.hn/servicios/mae/" aria-current="page" target="_blank">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">assessment</i>
+                <span class="mdc-deprecated-list-item__text">MAE</span>
+            </a>
+            <hr class="mdc-deprecated-list-divider s-mdc-deprecated-list-divider">
+            <a class="mdc-deprecated-list-item" href="/inscripcion/" aria-current="page">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">app_registration</i>
+                <span class="mdc-deprecated-list-item__text">Inscríbete</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/login/" aria-current="page">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">person</i>
+                <span class="mdc-deprecated-list-item__text">Iniciar Sesión</span>
             </a>
             {% endif %}
-            <a class="mdc-deprecated-list-item" href="https://drive.google.com/drive/folders/18LWswNRXNYC-VkIvE86GHSoXwrzLk64B" target="_blank">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">library_books</i>
-                <span class="mdc-deprecated-list-item__text">Recursos de Ayuda</span>
-            </a>
             <hr class="mdc-deprecated-list-divider s-mdc-deprecated-list-divider">
             <a class="mdc-deprecated-list-item" href="/acercade/">
                 <span class="mdc-deprecated-list-item__ripple"></span>
@@ -78,7 +99,7 @@
             </button>
             <div class="mdc-top-app-bar__title">
                 <a href="/">
-                    <img src="{{ url_for('static', filename='images/manifest/innova_logo.svg') }}" alt="Logo Innova" />
+                    <img src="{{ url_for('static', filename='images/manifest/logo_innova.svg') }}" alt="Logo Innova" />
                 </a>
             </div>
         </section>
