@@ -66,10 +66,15 @@ body {
         margin: 0rem 1rem;
     }
 
-    .footer-section__title {
-        font-weight: bold;
-        font-variant: small-caps;
-        margin-bottom: 1rem;
+    .footer-about {
+        display: flex;
+        justify-content: center;
+
+        .footer-pic-inc {
+            height: auto;
+            margin: -6rem 0 0 0;
+            width: 18rem;
+        }
     }
 
     .footer-about__text {
@@ -85,6 +90,12 @@ body {
 
     .footer-copyright {
         font-size: 0.7rem;
+    }
+
+    .footer-section__title {
+        font-weight: bold;
+        font-variant: small-caps;
+        margin-bottom: 1rem;
     }
 }
 
@@ -753,6 +764,60 @@ body {
     }
 }
 
+.container-carousel {
+    .container-carousel--item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        // Laptops and Computers
+        @media all and (min-width: 52.5em) {
+            img {
+                bottom: 0;
+                height: 31rem;
+                position: absolute;
+                right: 2rem;
+                width: auto;
+            }
+        }
+    
+        // Tablets
+        @media all and (max-width: 52.49em) {
+            img {
+                bottom: 0;
+                height: 24rem;
+                position: absolute;
+                right: 1rem;
+                width: auto;
+            }
+        }
+    
+        // Smartphones
+        @media all and (max-width: 37.49em) {
+            img {
+                bottom: 0;
+                height: 24rem;
+                position: absolute;
+                width: auto;
+            }
+    
+            .mdc-card {
+                margin-top: 15rem;
+            }
+
+            .container-carousel--item-margin {
+                margin-top: 22rem;
+            }
+        }
+    
+        .mdc-card {
+            background-color: stv.$swing-theme-on-primary;
+            padding: 0.5rem 1rem;
+            width: 20rem;
+        }
+    }
+}
+
 .container-color-background {
     background: stv.$swing-theme-background;
     display: block;
@@ -760,7 +825,7 @@ body {
 }
 
 .container-color-landingpage {
-    background: linear-gradient(145deg, #0073CF 0%, #a5b9e1 50%, #952D98 100%);
+    background: linear-gradient(145deg, #0073CF -20%, #a5b9e1 50%, #952D98 100%);
     display: block;
     width: 100%;
 }
@@ -836,6 +901,42 @@ body {
 
 .container-justify-center {
     justify-self: center;
+}
+
+.container-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    // Laptops, Computers and Tablets
+    @media all and (min-width: 37.5em) {
+        justify-content: space-between;
+
+        img {
+            height: 5rem;
+            margin: 1rem 1rem 1rem 0rem;
+            max-height: 50%;
+            max-width: 45%;
+            width: auto;
+        }
+    }
+
+    // Smartphones
+    @media all and (max-width: 37.49em) {
+        justify-content: space-around;
+
+        img {
+            height: auto;
+            margin: 1rem;
+            max-height: 50%;
+            max-width: 60%;
+            width: 14rem;
+        }
+    }
+}
+
+.container-logos--grayscale {
+    filter: grayscale(1);
 }
 
 .container-parallax {

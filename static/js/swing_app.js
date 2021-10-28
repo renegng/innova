@@ -870,6 +870,29 @@ export function shareRedirect(e) {
 window.shareRedirect = shareRedirect;
 
 
+// Slideshow Automatic
+export function slideShowAuto() {
+    Array.from(document.querySelectorAll('.container-carousel')).forEach((slidesContainer) => {
+        let activeSlide = slidesContainer.querySelector('.container-carousel--item-active');
+        let nextSlide = slidesContainer.querySelector('.container-carousel--item-active + .container-carousel--item');
+    
+        if (!nextSlide) {
+            nextSlide = slidesContainer.querySelector('.container-carousel--item:first-child');
+        }
+
+        activeSlide.classList.remove('container-carousel--item-active', 'animate__animated', 'animate__fadeIn');
+        activeSlide.classList.add('container--hidden');
+        nextSlide.classList.add('container-carousel--item-active', 'animate__animated', 'animate__fadeIn');
+        nextSlide.classList.remove('container--hidden');
+    });
+    window.setTimeout(() => {slideShowAuto()}, 10000);
+}
+
+if (document.querySelectorAll('.container-carousel')) {
+    window.setTimeout(() => {slideShowAuto()}, 10000);
+}
+
+
 // Top Bar Tabs URL Active and Redirect
 const topBarTabURLs = {
     // Inicio

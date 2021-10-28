@@ -185,6 +185,12 @@ def _chat_home():
     return render_template('chat_home.html')
 
 
+@home.route('/digitalcenter/')
+def _digitalcenter():
+    app.logger.debug('** SWING_CMS ** - Digital Center')
+    return render_template('digitalcenter.html')
+
+
 @home.route('/home/')
 @login_required
 def _home():

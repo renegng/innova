@@ -290,6 +290,18 @@
     }
 }
 
+.mdc-deprecated-list--color-on-primary {
+    @include list.deprecated-item-graphic-fill-color(stv.$swing-theme-on-secondary);
+    @include list.deprecated-item-graphic-ink-color(stv.$swing-theme-secondary);
+    @include list.deprecated-item-primary-text-ink-color(stv.$swing-theme-on-primary);
+
+    .mdc-deprecated-list-item__graphic {
+        border-radius: 2rem;
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
 // .component-wrapper > .mdc-deprecated-list {
 //     border: 0.0625rem solid rgba(0, 0, 0, 0.1);
 //     background: stv.$swing-theme-background;
