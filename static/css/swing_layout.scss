@@ -59,7 +59,7 @@ body {
     background: stv.$swing-theme-primary;
     color: stv.$swing-theme-on-primary;
     font-size: 0.9rem;
-    margin: 0rem 0.5rem;
+    margin: 1.5rem 0.5rem;
     padding: 2rem;
 
     section {
@@ -848,6 +848,12 @@ body {
     width: 100%;
 }
 
+.container-color-support {
+    background: stv.$swing-theme-support;
+    display: block;
+    width: 100%;
+}
+
 .container-color-surface {
     background: stv.$swing-theme-surface;
     display: block;
@@ -901,6 +907,12 @@ body {
 
 .container-justify-center {
     justify-self: center;
+}
+
+.container-justify-center--hor-ver {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .container-logos {
@@ -1099,6 +1111,10 @@ body {
 
 .s-font-color-secondary {
     color: stv.$swing-theme-secondary !important;
+}
+
+.s-font-color-support {
+    color: stv.$swing-theme-support !important;
 }
 
 .s-font-color-on-primary {
