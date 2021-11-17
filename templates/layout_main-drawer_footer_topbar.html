@@ -14,38 +14,6 @@
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">home</i>
                 <span class="mdc-deprecated-list-item__text">Inicio</span>
             </a>
-            {% if current_user.is_authenticated %}
-            <a class="mdc-deprecated-list-item" href="/home/" aria-current="page">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">widgets</i>
-                <span class="mdc-deprecated-list-item__text">Funciones</span>
-            </a>
-                {% if current_user.is_user_role(['adm','emp']) %}
-            <a class="mdc-deprecated-list-item" href="/chat/admin/" aria-current="page">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">chat</i>
-                <span class="mdc-deprecated-list-item__text">Chat</span>
-            </a>
-                {% elif current_user.is_user_role(['usr']) %}
-            <a class="mdc-deprecated-list-item" href="/chat/home/" aria-current="page">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">chat</i>
-                <span class="mdc-deprecated-list-item__text">Chat</span>
-            </a>
-                {% endif %}
-            <a class="mdc-deprecated-list-item" href="/appointments/" aria-current="page">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">event</i>
-                <span class="mdc-deprecated-list-item__text">Citas</span>
-            </a>
-                {% if current_user.is_user_role(['adm','emp']) %}
-            <a class="mdc-deprecated-list-item" href="/statistics/" aria-current="page">
-                <span class="mdc-deprecated-list-item__ripple"></span>
-                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">poll</i>
-                <span class="mdc-deprecated-list-item__text">Estadísticas</span>
-            </a>
-                {% endif %}
-            {% else %}
             <a class="mdc-deprecated-list-item" href="/digitalcenter/" aria-current="page">
                 <span class="mdc-deprecated-list-item__ripple"></span>
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">rss_feed</i>
@@ -67,6 +35,13 @@
                 <span class="mdc-deprecated-list-item__text">MAE</span>
             </a>
             <hr class="mdc-deprecated-list-divider s-mdc-deprecated-list-divider">
+            {% if current_user.is_authenticated %}
+            <a class="mdc-deprecated-list-item" href="/home/" aria-current="page">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">person</i>
+                <span class="mdc-deprecated-list-item__text">Dashboard</span>
+            </a>
+            {% else %}
             <a class="mdc-deprecated-list-item" href="/inscripcion/" aria-current="page">
                 <span class="mdc-deprecated-list-item__ripple"></span>
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">app_registration</i>
@@ -140,6 +115,38 @@
                     </ul>
                 </div>
             </div>
+            {% if current_user.is_authenticated %}
+            <div class="s-topbar__icon-button">
+                <button id="tbRegisterIconButton" class="mdc-icon-button s-font-color-primary material-icons" aria-label="Login" alt="Login"
+                    data-action-type="redirect" data-action-val="http://innova.ciudadmujer.gob.hn/inscribite/">
+                    <div class="mdc-icon-button__ripple"></div>
+                    app_registration
+                </button>
+            </div>
+            <div class="s-topbar__icon-button">
+                <button id="tbDashboardIconButton" class="mdc-icon-button s-font-color-secondary material-icons" aria-label="Register" alt="Register"
+                    data-action-type="redirect" data-action-val="/home/">
+                    <div class="mdc-icon-button__ripple"></div>
+                    person
+                </button>
+            </div>
+            <div class="s-topbar__text-button">
+                <button id="tbRegisterButton" class="mdc-button mdc-button--raised mdc-button--icon-leading" aria-label="Login" alt="Login"
+                    data-action-type="redirect" data-action-val="http://innova.ciudadmujer.gob.hn/inscribite/">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">app_registration</i>
+                    <span class="mdc-button__label">Inscríbete</span>
+                </button>
+            </div>
+            <div class="s-topbar__text-button">
+                <button id="tbDashboardButton" class="mdc-button mdc-button--raised mdc-button--icon-leading mdc-button--color-secondary" aria-label="Register" alt="Register"
+                    data-action-type="redirect" data-action-val="/home/">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">person</i>
+                    <span class="mdc-button__label">Dashboard</span>
+                </button>
+            </div>
+            {% else %}
             <div class="s-topbar__icon-button">
                 <button id="tbRegisterIconButton" class="mdc-icon-button s-font-color-primary material-icons" aria-label="Login" alt="Login"
                     data-action-type="redirect" data-action-val="http://innova.ciudadmujer.gob.hn/inscribite/">
@@ -170,6 +177,7 @@
                     <span class="mdc-button__label">Inicia Sesión</span>
                 </button>
             </div>
+            {% endif %}
         </section>
     </div>
 </header>

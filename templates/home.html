@@ -1,26 +1,145 @@
 {% extends 'layout_main-drawer--dismissible_footer_topbar.html' %}
-{% block page_description %}Contact-Os Funciones, Funciones, Home{% endblock %}
-{% block page_title %}Contact-Os Funciones{% endblock %}
+{% block page_description %}Innova Mujer Home, Casa, Dashboard, Home{% endblock %}
+{% block page_title %}Innova Mujer Home{% endblock %}
 {% block body %}
 <main class="s-main-content">
     <div class="container-color-background">
-        <div class="mdc-layout-grid container-size-xs">
+        <div class="mdc-layout-grid container-size-s">
             <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet 
-                            mdc-layout-grid__cell--align-middle container-justify-center s-font-align-center">
-                    <img class="resize-image-2fit-50" src="{{ url_for('static', filename='images/manifest/options.svg') }}" alt="Logo Funciones" />
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet 
+                            mdc-layout-grid__cell--align-middle">
+                    <div class="container-dashboard--profile">
+                        <div class="mdc-card mdc-card--color-on-primary">
+                            <div class="mdc-card__primary-action" tabindex="0">
+                                <div class="mdc-card__media">
+                                    <img class="profile-background" src="../static/images/manifest/innova_perfil.svg" alt="Border Perfil" />
+                                    <img class="profile-pic" src="../static/images/manifest/innova_icon.svg" alt="Foto Perfil" />
+                                </div>
+                                <div class="mdc-card__ripple"></div>
+                            </div>
+                            <div class="mdc-card__content s-font-align-center">
+                                <div class="mdc-typography--headline5 s-font-color-secondary">{{ current_user.name }}</div>
+                                <div class="mdc-typography--subtitle1">Lic. en sistemas</div>
+                                <div class="mdc-typography--subtitle1">
+                                    <i class="material-icons">place</i>
+                                    Tegucigalpa, Honduras.
+                                </div>
+                            </div>
+                            <div class="mdc-card__content">
+                                <div class="mdc-typography--body1 s-font-color-secondary">Wallet</div>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__actions-buttons">
+                                    <button class="mdc-button mdc-button--raised mdc-button--color-secondary mdc-card__action
+                                                mdc-card__action--button">
+                                        <div class="mdc-button__ripple"></div>
+                                        <span class="mdc-button__label">Créditos</span>
+                                    </button>
+                                </div>
+                                <div class="mdc-card__action-icons">
+                                    <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon">
+                                        <div class="mdc-icon-button__ripple"></div>
+                                        edit
+                                    </button>
+                                    <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon">
+                                        <div class="mdc-icon-button__ripple"></div>
+                                        more_vert
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet 
-                            mdc-layout-grid__cell--align-middle container-justify-center">
-                    <div class="mdc-typography--headline2 s-font-color-primary">
-                        Hola
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet">
+                    <div class="container-dashboard--messages">
+                        <div class="mdc-card mdc-card--color-on-primary">
+                            <div class="mdc-tab-bar" role="tablist" data-action-fn="showMessagesContracts">
+                                <div class="mdc-tab-scroller">
+                                    <div class="mdc-tab-scroller__scroll-area">
+                                        <div class="mdc-tab-scroller__scroll-content">
+                                            <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                                                <span class="mdc-tab__content">
+                                                    <span class="mdc-tab__text-label">Mensajes</span>
+                                                </span>
+                                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                                </span>
+                                                <span class="mdc-tab__ripple"></span>
+                                            </button>
+                                            <button class="mdc-tab" role="tab" aria-selected="true" tabindex="1">
+                                                <span class="mdc-tab__content">
+                                                    <span class="mdc-tab__text-label">Contratos</span>
+                                                </span>
+                                                <span class="mdc-tab-indicator">
+                                                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                                </span>
+                                                <span class="mdc-tab__ripple"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdc-card__content container-dashboard--messages-msg">
+                                <ul class="mdc-deprecated-list mdc-deprecated-list--two-line mdc-list--avatar-list">
+                                    <li class="mdc-deprecated-list-item" tabindex="0">
+                                        <span class="mdc-deprecated-list-item__ripple"></span>
+                                        <span class="mdc-deprecated-list-item__graphic" aria-hidden="true">
+                                            <img src="../static/images/manifest/user_f.svg" alt="Foto Usuario" />
+                                        </span>
+                                        <span class="mdc-deprecated-list-item__text">
+                                            <span class="mdc-deprecated-list-item__primary-text">Hola! Tal como acordamos, acá le comparto el logo para CompraNow</span>
+                                            <span class="mdc-deprecated-list-item__secondary-text">Rebeca Linares</span>
+                                        </span>
+                                        <span class="mdc-deprecated-list-item__meta material-icons s-font-color-secondary" aria-hidden="true">new_releases</span>
+                                    </li>
+                                    <li role="separator" class="mdc-deprecated-list-divider"></li>
+                                    <li class="mdc-deprecated-list-item">
+                                        <span class="mdc-deprecated-list-item__ripple"></span>
+                                        <span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">notifications</span>
+                                        <span class="mdc-deprecated-list-item__text">
+                                            <span class="mdc-deprecated-list-item__primary-text">Recuerda usar los créditos de tu Wallet para gozar de mayores beneficios en Innova Mujer.</span>
+                                            <span class="mdc-deprecated-list-item__secondary-text">Notificación Innova</span>
+                                        </span>
+                                    </li>
+                                    <li role="separator" class="mdc-deprecated-list-divider"></li>
+                                    <li class="mdc-deprecated-list-item">
+                                        <span class="mdc-deprecated-list-item__ripple"></span>
+                                        <span class="mdc-deprecated-list-item__graphic" aria-hidden="true">
+                                            <img src="../static/images/manifest/innova_icon.svg" alt="Foto Usuario" />
+                                        </span>
+                                        <span class="mdc-deprecated-list-item__text">
+                                            <span class="mdc-deprecated-list-item__primary-text">Cualquier otra duda o consulta quedo a sus órdenes. Saludos!</span>
+                                            <span class="mdc-deprecated-list-item__secondary-text">René Navarrete</span>
+                                        </span>
+                                    </li>
+                                    <li role="separator" class="mdc-deprecated-list-divider"></li>
+                                </ul>
+                            </div>
+                            <div class="mdc-card__content container-dashboard--messages-cnt container--hidden">
+                                <div class="container-dashboard--messages-list-empty s-font-align-center">
+                                    <p>
+                                        <i class="material-icons s-font-size-xl s-font-color-secondary">remove_shopping_cart</i>
+                                    </p>
+                                    <p class="mdc-typography--body1">
+                                        No posees contratos activos.
+                                    </p>
+                                    <p class="mdc-typography--caption">
+                                        Selecciona un servicio del Digital Center o el Marketplace.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__actions-buttons">
+                                </div>
+                                <div class="mdc-card__action-icons">
+                                    <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon">
+                                        <div class="mdc-icon-button__ripple"></div>
+                                        more_vert
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mdc-typography--headline4 s-font-color-secondary">
-                        {{ current_user.name }}
-                    </div>
-                    <p class="mdc-typography--headline4 s-font-color-primary">
-                        ¿Qué necesitas?
-                    </p>
                 </div>
             </div>
         </div>
@@ -107,4 +226,5 @@
 </main>
 {% endblock %}
 {% block body_script_section %}
+<script src="{{ url_for('static', filename='js/bundle/home-dashboard.min.js') }}"></script>
 {% endblock %}

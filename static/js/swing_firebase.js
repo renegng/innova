@@ -29,13 +29,16 @@ if (!firebase.apps.length) {
             // User is signed in
             console.log('Firebase User Info found');
             advStreams.myUserInfo.name = user.displayName;
-            advStreams.myUserInfo.photoURL = (user.photoURL) ? user.photoURL : '/static/images/manifest/user_f.svg';
+            advStreams.myUserInfo.photoURL = (user.photoURL) ? user.photoURL : '/static/images/manifest/innova_icon.svg';
             if (document.querySelector('#accountIcon')) {
                 document.querySelector('#accountIcon').classList.add('container--hidden');
                 document.querySelector('#accountImage').src = advStreams.myUserInfo.photoURL;
                 document.querySelector('#accountImage').classList.remove('container--hidden');
                 document.querySelector('#accountLogIn').classList.add('container--hidden');
                 document.querySelector('#accountLogOut').classList.remove('container--hidden');
+            }
+            if (document.querySelector('.profile-pic')) {
+                document.querySelector('.profile-pic').src = advStreams.myUserInfo.photoURL;
             }
         } else {
             // User is not signed in
@@ -119,7 +122,7 @@ const fibaAuthUIConfig = {
                 size: 'normal',
                 badge: 'inline'
             },
-            defaultCountry: 'SV'
+            defaultCountry: 'HN'
             // loginHint: '+50377889900',
             // whitelistedCountries: ['SV','US']
         }

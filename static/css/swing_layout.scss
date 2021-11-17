@@ -59,7 +59,7 @@ body {
     background: stv.$swing-theme-primary;
     color: stv.$swing-theme-on-primary;
     font-size: 0.9rem;
-    margin: 1.5rem 0.5rem;
+    margin: 1.5rem 0.5rem 0rem 0.5rem;
     padding: 2rem;
 
     section {
@@ -860,6 +860,79 @@ body {
     width: 100%;
 }
 
+.container-dashboard--messages {
+    height: 100%;
+    width: 100%;
+
+    .mdc-card {
+        border-radius: 0.5rem;
+        height: 100%;
+        min-height: 25rem;
+        width: 100%;
+    }
+
+    .mdc-card__content {
+        padding: 0.5rem 1rem;
+
+        .mdc-deprecated-list-item__graphic > img {
+            background: stv.$swing-theme-on-primary;
+            border-radius: 50%;
+            width: 2rem;
+        }
+    }
+
+    .mdc-tab-bar {
+        padding: 0.5rem 1rem;
+        width: auto;
+    }
+}
+
+.container-dashboard--profile {
+    width: 100%;
+
+    .mdc-card {
+        border-radius: 0.5rem;
+        width: 100%;
+
+        div > i {
+            vertical-align: middle;
+        }
+
+        .mdc-card__content {
+            padding: 1rem;
+        }
+
+        .mdc-card__media {
+            display: grid;
+            grid-template-columns: [gtc] 100%;
+            grid-template-rows: [gtr] 100%;
+            padding: 1rem;
+
+            .profile-background {
+                align-self: center;
+                grid-column-start: gtc;
+                grid-row-start: gtr;
+                justify-self: center;
+                max-width: 18rem;
+                width: 75%;
+            }
+
+            .profile-pic {
+                align-self: center;
+                background: stv.$swing-theme-surface;
+                border-radius: 50%;
+                grid-column-start: gtc;
+                grid-row-start: gtr;
+                justify-self: center;
+                margin-left: -3.5%;
+                margin-top: -18%;
+                max-width: 15rem;
+                width: 50%;
+            }
+        }
+    }
+}
+
 .container-dialog--satisfaction {
     display: flex;
     justify-content: space-around;
@@ -958,28 +1031,112 @@ body {
     background-size: cover;
 }
 
+.container-scroll-h {
+    display: flex;
+    width: 100%;
+
+    .mdc-card {
+        border-radius: 2.5rem 0.5rem;
+        max-width: 14vw;
+        min-width: 15rem;
+
+        .mdc-card__content {
+            padding: 1rem;
+        }
+
+        .mdc-card__media {
+            filter: drop-shadow(0.5rem 0.3rem 0.2rem #000000);
+            margin-top: 2rem;
+        }
+
+        .mdc-card__media + div {
+            margin-bottom: 0.5rem;
+            // text-shadow: 0.1rem 0.1rem 0.2rem #000000;
+        }
+    }
+
+    // Laptops and Computers
+    @media all and (min-width: 52.5em) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .mdc-card {
+            margin: 0rem 1rem 1.5rem 0rem;
+        }
+    }
+
+    // Tablets & Smartphones
+    @media all and (max-width: 52.49em) {
+        margin: 0rem 0rem 1rem 0rem;
+        overflow-x: scroll;
+        padding: 0rem 0rem 0.5rem 0rem;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            height: 0.5rem;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: stv.$swing-theme-secondary;
+            border-radius: 0.5rem;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: rgba($color: stv.$swing-theme-background, $alpha: 0.5);
+        }
+
+        .mdc-card {
+            margin: 0.25rem 0.5rem;
+            scroll-snap-align: start;
+        }
+    }
+}
+
 .container-size-l {
     margin: 0rem 10%;
     min-height: 80vh;
     position: relative;
+
+    // Smartphones
+    @media all and (max-width: 37.49em) {
+        margin: 0rem 5%;
+    }
 }
 
 .container-size-m {
     margin: 0rem 10%;
     min-height: 60vh;
     position: relative;
+
+    // Smartphones
+    @media all and (max-width: 37.49em) {
+        margin: 0rem 5%;
+    }
 }
 
 .container-size-s {
     margin: 0rem 10%;
     min-height: 40vh;
     position: relative;
+
+    // Smartphones
+    @media all and (max-width: 37.49em) {
+        margin: 0rem 5%;
+    }
 }
 
 .container-size-xs {
     margin: 0rem 10%;
     min-height: 10vh;
     position: relative;
+
+    // Smartphones
+    @media all and (max-width: 37.49em) {
+        margin: 0rem 5%;
+    }
 }
 
 .container-stats-export {
