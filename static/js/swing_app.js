@@ -6,6 +6,7 @@ import anchorme from 'anchorme';
 import console from 'dev-console.macro';
 import * as localForage from "localforage";
 import { accountRedirect } from './swing_firebase';
+import { MDCChipSet } from '@material/chips';
 import { MDCDialog } from '@material/dialog';
 import { MDCDrawer } from "@material/drawer";
 import { MDCFloatingLabel } from '@material/floating-label';
@@ -946,6 +947,16 @@ window.accountRedirect = accountRedirect;
 
 /************************** MATERIAL DESIGN COMPONENTS INIT **************************/
 
+// Material Chips
+var mdcChipsSets = [].map.call(document.querySelectorAll('.mdc-evolution-chip-set'), function (el) {
+    let mdcChipSet = new MDCChipSet(el);
+    if (el.hasAttribute('data-assigned-var')) {
+        MDCChipSet.prototype.assignedVar = null;
+        mdcChipSet.assignedVar = el.getAttribute('id');
+    }
+    return mdcChipSet;
+});
+
 // Material Dialog
 export var mdcDialogs = [].map.call(document.querySelectorAll('.mdc-dialog'), function (el) {
     let mdcDialog = new MDCDialog(el);
@@ -958,13 +969,13 @@ export var mdcDialogs = [].map.call(document.querySelectorAll('.mdc-dialog'), fu
 
 
 // Material Drawer & Top App Bar
-const drawerEl = document.querySelector('.mdc-drawer');
-const topAppBarEl = document.querySelector('.mdc-top-app-bar');
-const topAppBarNavEl = document.querySelector('.mdc-top-app-bar__navigation-icon');
+const drawerEl = document.querySelector('.s-drawer');
+const topAppBarEl = document.querySelector('.s-topbar');
+const topAppBarNavEl = topAppBarEl.querySelector('.s-topbar-navicon');
 if (drawerEl && topAppBarEl) {
-    const mainContentEl = document.querySelector('.mdc-drawer-app-content');
-    const drawerItemsEl = document.querySelector('.mdc-drawer__content .mdc-deprecated-list');
-    const drwScrCloneEl = document.querySelector('.mdc-drawer-scrim').cloneNode(true);
+    const mainContentEl = document.querySelector('.s-drawer-app-content');
+    const drawerItemsEl = drawerEl.querySelector('.mdc-drawer__content > .mdc-deprecated-list');
+    const drwScrCloneEl = document.querySelector('.s-drawer-scrim').cloneNode(true);
 
     const topAppBar = MDCTopAppBar.attachTo(topAppBarEl);
     topAppBar.setScrollTarget(mainContentEl);
@@ -977,7 +988,7 @@ if (drawerEl && topAppBarEl) {
     const initModalDrawer = () => {
         isDrawerModal = true;
         if (isDrawerDismissible) {
-            if (!(document.querySelector('.mdc-drawer-scrim'))) {
+            if (!(document.querySelector('.s-drawer-scrim'))) {
                 mainContentEl.insertAdjacentElement('beforebegin', drwScrCloneEl);
             }
             drawerEl.classList.remove("mdc-drawer--dismissible");
@@ -1013,8 +1024,8 @@ if (drawerEl && topAppBarEl) {
         drawerEl.classList.remove("mdc-drawer--modal");
 
         if (isDrawerDismissible) {
-            if ((document.querySelector('.mdc-drawer-scrim'))) {
-                document.querySelector('.mdc-drawer-scrim').remove();
+            if ((document.querySelector('.s-drawer-scrim'))) {
+                document.querySelector('.s-drawer-scrim').remove();
             }
             drawerEl.classList.add("mdc-drawer--dismissible");
             topAppBarNavEl.classList.remove("mdc-top-app-bar__navigation-icon--hidden");
@@ -1076,7 +1087,7 @@ if (drawerEl && topAppBarEl) {
     });
 } else if (topAppBarEl) {
     const topAppBar = MDCTopAppBar.attachTo(topAppBarEl);
-    const mainContentEl = document.querySelector('.mdc-drawer-app-content');
+    const mainContentEl = document.querySelector('.s-drawer-app-content');
 
     topAppBar.setScrollTarget(mainContentEl);
     topAppBarNavEl.classList.add("mdc-top-app-bar__navigation-icon--hidden");

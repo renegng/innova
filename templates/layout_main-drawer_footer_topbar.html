@@ -34,6 +34,11 @@
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">assessment</i>
                 <span class="mdc-deprecated-list-item__text">MAE</span>
             </a>
+            <a class="mdc-deprecated-list-item" href="/acercade/">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">label_important</i>
+                <span class="mdc-deprecated-list-item__text">Oportunidades</span>
+            </a>
             <hr class="mdc-deprecated-list-divider s-mdc-deprecated-list-divider">
             {% if current_user.is_authenticated %}
             <a class="mdc-deprecated-list-item" href="/home/" aria-current="page">
@@ -61,19 +66,24 @@
             <hr class="mdc-deprecated-list-divider s-mdc-deprecated-list-divider">
             <a class="mdc-deprecated-list-item" href="/acercade/">
                 <span class="mdc-deprecated-list-item__ripple"></span>
+                <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">extension</i>
+                <span class="mdc-deprecated-list-item__text">Nuestros servicios</span>
+            </a>
+            <a class="mdc-deprecated-list-item" href="/acercade/">
+                <span class="mdc-deprecated-list-item__ripple"></span>
                 <i class="material-icons mdc-deprecated-list-item__graphic" aria-hidden="true">info</i>
                 <span class="mdc-deprecated-list-item__text">Acerca de...</span>
             </a>
         </nav>
     </div>
 </aside>
-<div class="mdc-drawer-scrim"></div>
+<div class="s-drawer-scrim mdc-drawer-scrim"></div>
 {% endblock %}
 {% block topbar %}
 <header class="s-topbar mdc-top-app-bar mdc-top-app-bar--prominent">
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button material-icons" aria-label="Menu">
+            <button class="s-topbar-navicon material-icons mdc-top-app-bar__navigation-icon mdc-icon-button material-icons" aria-label="Menu">
                 <div class="mdc-icon-button__ripple"></div>
                 menu
             </button>
@@ -245,6 +255,15 @@
                     <button class="mdc-tab" role="tab" aria-selected="true" tabindex="4">
                         <span class="mdc-tab__content">
                             <span class="mdc-tab__text-label">MAE</span>
+                        </span>
+                        <span class="mdc-tab-indicator">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab" role="tab" aria-selected="true" tabindex="4">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">Oportunidades</span>
                         </span>
                         <span class="mdc-tab-indicator">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>

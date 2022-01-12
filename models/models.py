@@ -86,7 +86,7 @@ es = ElasticSearchInit()
 def es_refactor_index(index):
     # This is an acronym for the app, making an index app exclusive
     # Must be lowercase 
-    app_acr = 'ctos-'
+    app_acr = 'inno-'
     ref_index = app_acr + str(index)
     return ref_index
 

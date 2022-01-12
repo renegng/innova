@@ -92,10 +92,10 @@ def populateDefaultUsers():
 
         # Add Admin User
         admin_user = User()
-        admin_user.uid = 'CTOS-Administrator'
-        admin_user.email = 'admusr@contact-os.com'
-        admin_user.name = 'Contact-Os Administrador'
-        admin_user.cmuserid = 'CTOS-ADM-200000-0001'
+        admin_user.uid = 'INNO-Administrator'
+        admin_user.email = 'admusr@innova.com'
+        admin_user.name = 'Innova Administrador'
+        admin_user.cmuserid = 'INNO-ADM-200000-0001'
         db.session.add(admin_user)
         db.session.flush()
         # Add Admin Role
@@ -109,10 +109,10 @@ def populateDefaultUsers():
 
         # Add Anon User
         anon_user = User()
-        anon_user.uid = 'CTOS-Anonim@'
-        anon_user.email = 'anon@contact-os.com'
+        anon_user.uid = 'INNO-Anonim@'
+        anon_user.email = 'anon@innova.com'
         anon_user.name = 'Anonim@'
-        anon_user.cmuserid = 'CTOS-ANN-200000-0001'
+        anon_user.cmuserid = 'INNO-ANN-200000-0001'
         db.session.add(anon_user)
         db.session.flush()
         # Add User Role
@@ -137,16 +137,17 @@ def populateServicesCatalog(column=None):
 
         if column is None:
             # Add Services
-            adv_usr_role = CatalogUserRoles.query.filter_by(name_short='emp').first()
-            advice = CatalogServices(name='Orientación', name_short='adv', service_user_role=adv_usr_role.id)
-            db.session.add(advice)
+            staff_it_role = CatalogUserRoles.query.filter_by(name_short='itc').first()
+            websites = CatalogServices(name='Páginas web', name_short='web', service_user_role=staff_it_role.id)
+            db.session.add(websites)
 
-            law_usr_role = CatalogUserRoles.query.filter_by(name_short='emp').first()
-            lawyer = CatalogServices(name='Asistencia Legal', name_short='law', service_user_role=law_usr_role.id)
-            db.session.add(lawyer)
+            ecommerce = CatalogServices(name='Pagos online', name_short='pay', service_user_role=staff_it_role.id)
+            db.session.add(ecommerce)
 
-            sup_usr_role = CatalogUserRoles.query.filter_by(name_short='emp').first()
-            support = CatalogServices(name='Soporte', name_short='sup', service_user_role=sup_usr_role.id)
+            seo = CatalogServices(name='Aparece en Google', name_short='seo', service_user_role=staff_it_role.id)
+            db.session.add(seo)
+
+            support = CatalogServices(name='Soporte técnico', name_short='sup', service_user_role=staff_it_role.id)
             db.session.add(support)
             
             db.session.commit()
@@ -169,56 +170,79 @@ def populateServicesCatalog(column=None):
         
         elif column == 'sch':
             # Add Service's Sessions Schedule
-            advsrv = CatalogServices.query.filter_by(name_short='adv').first()
-            advsrv.sessions_schedule = [{
+            websrv = CatalogServices.query.filter_by(name_short='web').first()
+            websrv.sessions_schedule = [{
                 'weeks': 'all',
                 'wdays': ['tue', 'wed', 'thu'],
                 'hours': [
-                    {'start_time': '8:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '9:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '10:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '11:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '13:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '14:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '15:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'}
+                    {'start_time': '8:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '9:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '10:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '11:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '13:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '14:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '15:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'}
                 ]
             },{
                 'weeks': 'even',
                 'wdays': ['mon', 'fri'],
                 'hours': [
-                    {'start_time': '9:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '10:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '12:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '14:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '15:00', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'}
+                    {'start_time': '9:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '10:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '12:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '14:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '15:00', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'}
                 ]
             },{
                 'weeks': 'odd',
                 'wdays': ['mon', 'fri'],
                 'hours': [
-                    {'start_time': '10:30', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '14:30', 'duration': advsrv.duration_minutes, 'break_time': advsrv.break_minutes, 'tod': 'evening'}
+                    {'start_time': '10:30', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '14:30', 'duration': websrv.duration_minutes, 'break_time': websrv.break_minutes, 'tod': 'evening'}
                 ]
             }]
-            db.session.add(advsrv)
+            db.session.add(websrv)
 
-            lawsrv = CatalogServices.query.filter_by(name_short='law').first()
-            lawsrv.sessions_schedule = [{
+            paysrv = CatalogServices.query.filter_by(name_short='pay').first()
+            paysrv.sessions_schedule = [{
                 'weeks': 'all',
                 'wdays': ['mon', 'tue', 'wed', 'thu', 'fri'],
                 'hours': [
-                    {'start_time': '05:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'dawn'},
-                    {'start_time': '10:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '11:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'morning'},
-                    {'start_time': '13:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '14:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '15:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'evening'},
-                    {'start_time': '17:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'night'},
-                    {'start_time': '19:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'night'},
-                    {'start_time': '21:00', 'duration': lawsrv.duration_minutes, 'break_time': lawsrv.break_minutes, 'tod': 'night'}
+                    {'start_time': '05:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'dawn'},
+                    {'start_time': '10:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '11:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '13:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '14:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '15:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '17:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'night'},
+                    {'start_time': '19:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'night'},
+                    {'start_time': '21:00', 'duration': paysrv.duration_minutes, 'break_time': paysrv.break_minutes, 'tod': 'night'}
                 ]
             }]
-            db.session.add(lawsrv)
+            db.session.add(paysrv)
+
+            seosrv = CatalogServices.query.filter_by(name_short='seo').first()
+            seosrv.sessions_schedule = [{
+                'weeks': 'all',
+                'wdays': ['mon', 'tue', 'wed', 'thu'],
+                'hours': [
+                    {'start_time': '8:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '9:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '10:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '11:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '13:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'evening'}
+                ]
+            },{
+                'weeks': 'all',
+                'wdays': ['fri'],
+                'hours': [
+                    {'start_time': '10:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'morning'},
+                    {'start_time': '14:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '18:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'evening'},
+                    {'start_time': '22:00', 'duration': seosrv.duration_minutes, 'break_time': seosrv.break_minutes, 'tod': 'night'}
+                ]
+            }]
+            db.session.add(seosrv)
 
             supsrv = CatalogServices.query.filter_by(name_short='sup').first()
             supsrv.sessions_schedule = [{
@@ -402,8 +426,23 @@ def populateCatalogUserRoles():
         admin_role = CatalogUserRoles(name='Administrador', name_short='adm')
         db.session.add(admin_role)
         
-        staff_role = CatalogUserRoles(name='Empleado', name_short='emp')
-        db.session.add(staff_role)
+        entrepreneur_role = CatalogUserRoles(name='Empresaria', name_short='emp')
+        db.session.add(entrepreneur_role)
+
+        provider_role = CatalogUserRoles(name='Oferente', name_short='ofe')
+        db.session.add(provider_role)
+
+        staff_it_role = CatalogUserRoles(name='Colaborador IT', name_short='itc')
+        db.session.add(staff_it_role)
+
+        staff_design_role = CatalogUserRoles(name='Colaborador Diseño', name_short='dis')
+        db.session.add(staff_design_role)
+
+        staff_marketing_role = CatalogUserRoles(name='Colaborador Marketing', name_short='mkt')
+        db.session.add(staff_marketing_role)
+
+        staff_coordinator_role = CatalogUserRoles(name='Coordinador', name_short='coo')
+        db.session.add(staff_coordinator_role)
 
         db.session.commit()
 

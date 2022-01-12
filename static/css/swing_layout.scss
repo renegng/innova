@@ -27,7 +27,8 @@
 html,
 body {
     height: 100%;
-    margin: 0;
+    margin: auto;
+    max-width: 120rem;
     padding: 0;
 }
 
@@ -74,6 +75,7 @@ body {
             height: auto;
             margin: -6rem 0 0 0;
             width: 18rem;
+            z-index: 1;
         }
     }
 
@@ -1042,6 +1044,98 @@ body {
 
 .container-logos--grayscale {
     filter: grayscale(1);
+}
+
+.container-marketplace--drawer {
+    height: auto;
+}
+
+.container-marketplace--drawer-app-content {
+    height: inherit;
+
+    .container-marketplace--main-content {
+        margin: 0rem 0rem 1.5rem 0rem;
+        padding: 0rem 1rem;
+
+        .container-marketplace--search-result {
+            border-radius: 1.25rem;
+            margin-bottom: 1rem;
+
+            .mdc-card__primary-action {
+                display: grid;
+                grid-template-areas:
+                    "profile name hours"
+                    "profile service location"
+                    "profile description description"
+                    "rating skill skill";
+                grid-template-columns: 20% 60% 20%;
+                grid-template-rows: auto;
+                padding: 0.5rem;
+
+                div > i {
+                    vertical-align: bottom;
+                }
+
+                .search-result--description {
+                    grid-area: description;
+                }
+
+                .search-result--hours {
+                    grid-area: hours;
+                    justify-self: end;
+                }
+
+                .search-result--location {
+                    grid-area: location;
+                    justify-self: end;
+                }
+                
+                .search-result--name {
+                    grid-area: name;
+                }
+
+                .search-result--profile {
+                    align-self: center;
+                    grid-area: profile;
+                    justify-self: center;
+                    
+                    .profile-background {
+                        height: auto;
+                        max-width: 10rem;
+                        width: 100%;
+                    }
+                }
+
+                .search-result--rating {
+                    grid-area: rating;
+                    justify-self: center;
+                }
+
+                .search-result--service {
+                    grid-area: service;
+                }
+
+                .search-result--skills {
+                    grid-area: skill;
+                }
+            }
+        }
+    }
+}
+
+.container-marketplace--topappbar {
+    &.mdc-top-app-bar {
+        margin: 1rem 0rem;
+
+        .mdc-top-app-bar__section--align-start {
+            flex-grow: 0;
+        }
+
+        .mdc-top-app-bar__section--align-middle {
+            margin: auto;
+            max-width: 80vw;
+        }
+    }
 }
 
 .container-parallax {

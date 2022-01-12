@@ -194,8 +194,8 @@ def _digitalcenter():
 @home.route('/home/')
 @login_required
 def _home():
-    app.logger.debug('** SWING_CMS ** - Home')
-    return render_template('home.html')
+    app.logger.debug('** SWING_CMS ** - Home Dashboard')
+    return render_template('home_dashboard.html')
 
 
 @home.route('/login/')
@@ -227,7 +227,7 @@ def _loginuser():
         decoded_token = auth.verify_id_token(idToken)
         
         usremail = decoded_token['email'] if 'email' in decoded_token else None
-        uid = decoded_token['uid'] if usremail != 'admusr@contact-os.com' else 'CTOS-Administrator'
+        uid = decoded_token['uid'] if usremail != 'admusr@innova.com' else 'INNO-Administrator'
 
         # Search for the user in the DB.
         user = User.query.filter_by(uid = uid).first()
@@ -254,7 +254,7 @@ def _loginuser():
             user.name = fibaUser.display_name
             user.phonenumber = fibaUser.phone_number
             user.datecreated = dt.now(tz.utc)
-            user.cmuserid = 'CTOS-' + user.name.strip().upper()[0:1] + user.datecreated.strftime('-%y%m%d-%H%M%S')
+            user.cmuserid = 'INNO-' + user.name.strip().upper()[0:1] + user.datecreated.strftime('-%y%m%d-%H%M%S')
             db.session.add(user)
             
             db.session.commit()
@@ -304,6 +304,12 @@ def _logoutuser():
     except Exception as e:
         app.logger.error('** SWING_CMS ** - LogoutUser Error: {}'.format(e))
         return jsonify({ 'status': 'error' })
+
+
+@home.route('/marketplace/')
+def _marketplace():
+    app.logger.debug('** SWING_CMS ** - Marketplace')
+    return render_template('marketplace.html')
 
 
 @home.route('/offline/')

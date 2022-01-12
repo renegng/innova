@@ -267,6 +267,42 @@ var wpHomeDashboard = new Object({
     }
 });
 
+// Creates the Marketplace bundle
+var wpMarketplace = new Object({
+    entry: [
+        './static/js/marketplace.js'
+    ],
+    output: {
+        filename: 'static/js/bundle/marketplace.min.js',
+        library: 'swmkt',
+        libraryTarget: 'var',
+        path: __dirname
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                options: {
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties',
+                        'babel-plugin-macros'
+                    ],
+                    presets: [
+                        [
+                            '@babel/preset-env', {
+                                'modules': false,
+                                'useBuiltIns': 'entry',
+                                'corejs': {'version': '3', 'proposals': true},
+                            }
+                        ]
+                    ]
+                }
+            }
+        ]
+    }
+});
+
 // Creates the service worker bundle
 var wpServiceWorker = new Object({
     entry: [
@@ -422,6 +458,7 @@ module.exports = [
     wpAppointmentsView,
     wpDigitalCenter,
     wpHomeDashboard,
+    wpMarketplace,
     wpServiceWorker,
     wpStatistics,
     wpBundle

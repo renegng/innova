@@ -47,6 +47,7 @@
 @use "@material/button/mdc-button";
 @use "@material/card";
 @use "@material/card/mdc-card";
+@use "@material/chips/styles" as chips;
 @use "@material/dialog";
 @use "@material/dialog/mdc-dialog";
 @use "@material/drawer";
@@ -431,6 +432,10 @@
 /* Text field */
 .mdc-text-field {
     width: 100%;
+}
+
+.mdc-text-field--color-on-primary {
+    @include textfield.fill-color(stv.$swing-theme-on-primary);
 }
 
 /* Top app bar */

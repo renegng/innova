@@ -28,7 +28,7 @@ Innova is being develop with the following libraries:
 
 # Installation steps
 
-To install Innova, follow the next steps (under Ubuntu 16.04):
+To install Innova, follow the next steps (under Ubuntu 20.04):
 
 1 - Create a directory into which clone Innova. If it's being deployed on a web server, like Apache HTTPD, create it under the proper directory. (i.e.: /var/www/)
 
@@ -44,9 +44,9 @@ To install Innova, follow the next steps (under Ubuntu 16.04):
 
     ~: git clone git@github.com:renegng/innova.git
 
-4 - Inside the prevoius folder, install a Python 3.5 or greater virtual environment and the RDBMS (MySQL, ElasticSearch) prerequisites:
+4 - Inside the prevoius folder, install a Python 3.8 or greater virtual environment and the RDBMS (MySQL, ElasticSearch) prerequisites:
 
-    ~: [python | python3 | python3.6 | python3.x] -m venv venv
+    ~: [python | python3 | python3.8 | python3.x] -m venv venv
     ~: sudo apt-get install build-essential python3-dev libmysqlclient-dev
     ~: sudo apt-get install elasticsearch
 
@@ -79,13 +79,6 @@ To install Innova, follow the next steps (under Ubuntu 16.04):
     ~: pip install elasticsearch
     ~: pip install cryptography
     ~: pip install sqlalchemy-utils
-
-    For ChatBot component, install following packages:
-    ~: pip install pyspellchecker
-    ~: pip install chatterbot
-    ~: pip install pyyaml
-    ~: pip install spacy
-    ~: spacy download es
 
     ~: deactivate
 
