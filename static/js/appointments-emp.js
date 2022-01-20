@@ -5,7 +5,7 @@ import { MDCMenu, Corner } from '@material/menu';
 
 /************************** FUNCTIONS **************************/
 
-export const appCountry = 'SV';
+export const appCountry = 'HN';
 export var appCal, citiesData, maxDate, minDate, setUserCity, statesData = null;
 export var jsonEmpDetails, jsonEmpBusySch, jsonServiceDetails, jsonUserDetails = null;
 
