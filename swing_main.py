@@ -18,8 +18,8 @@ with app.app_context():
     from views.api import api as api_view
     from views.home import home as home_view
     from views.seo import seo as seo_view
-    # from views.socketio import sio as sio_view
-    from views.siortc import siortc as siortc_view
+    from views.socketio import sio as sio_view
+    # from views.siortc import siortc as siortc_view
 
     # API Fetchs
     app.register_blueprint(api_view)
@@ -31,8 +31,8 @@ with app.app_context():
     app.register_blueprint(seo_view)
 
     # SocketIO WebRTC Events
-    # app.register_blueprint(sio_view)
-    app.register_blueprint(siortc_view)
+    app.register_blueprint(sio_view)
+    # app.register_blueprint(siortc_view)
 
     # Register the Service Worker
     @app.route('/sw.js', methods=['GET'])
