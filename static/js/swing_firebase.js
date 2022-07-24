@@ -71,6 +71,11 @@ if (!firebase.apps.length) {
                 });
             }
         });
+
+        // When a RTC Connection Intent exists, it executes signaling
+        if (document.querySelector('.container-chat') && !userSignsOut) {
+            initializeRTC();
+        }
     });
 } else {
     fibaApp = firebase.app();
