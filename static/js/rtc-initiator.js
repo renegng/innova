@@ -311,7 +311,7 @@ class rtcPeerConnection {
         let userData = Object.assign({}, swcms.advStreams.myUserInfo);
 
         if (this.uListElem.getAttribute('data-meta-uid') == 2) {
-            userData.name = 'Agente Contact-Os';
+            userData.name = 'Agente Innova';
             userData.photoURL = '/static/images/manifest/agent_f.svg';
         }
 
