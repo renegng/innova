@@ -18,40 +18,40 @@ const swStore = localForage.createInstance({
 // URLs to Pre-Cache
 const filesToPreCache = [
     // Web pages
-    { url: '/', revision: '2022-05-27-1' },
-    { url: '/offline/', revision: '2022-05-27-1' },
-    { url: '/politicaprivacidad/', revision: '2022-05-27-1' },
-    { url: '/terminosdelservicio/', revision: '2022-05-27-1' },
+    { url: '/', revision: '2022-08-30-1' },
+    { url: '/offline/', revision: '2022-08-30-1' },
+    { url: '/politicaprivacidad/', revision: '2022-08-30-1' },
+    { url: '/terminosdelservicio/', revision: '2022-08-30-1' },
     // Images
-    { url: '/static/images/manifest/agent_f.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/icon-512x512.png', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/innova_drop.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/innova_icon.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/innova_pin.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_bid.png', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_cmh.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_gdh.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_gob_inam.png', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_innova.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_senprende.png', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/logo_wefi.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/user_f.svg', revision: '2022-05-27-1' },
-    { url: '/static/images/manifest/wifi_antenna.svg', revision: '2022-05-27-1' },
+    { url: '/static/images/manifest/agent_f.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/icon-512x512.png', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/innova_drop.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/innova_icon.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/innova_pin.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_bid.png', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_cmh.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_gdh.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_gob_inam.png', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_innova.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_senprende.png', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/logo_wefi.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/user_f.svg', revision: '2022-08-30-1' },
+    { url: '/static/images/manifest/wifi_antenna.svg', revision: '2022-08-30-1' },
     // Audio Files
-    { url: '/static/media/audio/call_connected.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/call_ended.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/calling_ring.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/msg_chat_bg.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/msg_chat_new.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/msg_chat_pop.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/msg_chat_tr.mp3', revision: '2022-05-27-1' },
-    { url: '/static/media/audio/notification_new.mp3', revision: '2022-05-27-1' }
+    { url: '/static/media/audio/call_connected.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/call_ended.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/calling_ring.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/msg_chat_bg.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/msg_chat_new.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/msg_chat_pop.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/msg_chat_tr.mp3', revision: '2022-08-30-1' },
+    { url: '/static/media/audio/notification_new.mp3', revision: '2022-08-30-1' }
 ];
 
 // Configuring Workbox
 setCacheNameDetails({
     prefix: 'innova',
-    suffix: 'v2022-05-27-1',
+    suffix: 'v2022-08-30-1',
     precache: 'install-time',
     runtime: 'run-time',
     googleAnalytics: 'ga'

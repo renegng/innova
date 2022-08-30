@@ -27,7 +27,7 @@ def _connect():
         photoURL = request.args.get('p_url')
 
         # Retrieve User
-        user = current_user if current_user.is_authenticated else User.query.filter_by(uid='CTOS-Anonim@').first()
+        user = current_user if current_user.is_authenticated else User.query.filter_by(uid='INNO-Anonim@').first()
 
         # Retrieve User IP Address
         ip = request.environ.get('HTTP_X_FORWARDED_FOR')
@@ -88,10 +88,10 @@ def _connect():
         # Add Employee to Room and Send User List
         if current_user.is_authenticated:
             if current_user.is_user_role(['adm', 'emp']):
-                join_room('CTOS-EMPS')
+                join_room('INNO-EMPS')
         
         socketio.emit('userIsConnected', { 'status' : 'success', 'id' : user.id, 'roles' : user.get_user_roles() }, room=request.sid)
-        socketio.emit('RTCUserList', new_userlist, room='CTOS-EMPS')
+        socketio.emit('RTCUserList', new_userlist, room='INNO-EMPS')
     except Exception as e:
         app.logger.error('** SWING_CMS ** - SocketIO User Connected Error: {}'.format(e))
         return jsonify({ 'status': 'error' })
